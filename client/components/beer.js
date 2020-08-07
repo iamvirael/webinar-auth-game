@@ -17,7 +17,7 @@ class Root extends React.Component {
 
   getBeer = () => {
     axios(URL).then(({ data }) => {
-      this.setState({ beerName: data.data.name, id: data.data.id  })
+      this.setState({ beerName: data.data.name, id: data.data.id })
     })
   }
 
@@ -27,13 +27,13 @@ class Root extends React.Component {
 
   render() {
     return (
-      <h6>
+      <div>
         Hold my {this.state.type}, {this.state.beerName} <br />
         <Brewery id={this.state.id} /> <br />
         <button type="button" onClick={this.getBeer}>
           Refresh
         </button>
-      </h6>
+      </div>
     )
   }
 }

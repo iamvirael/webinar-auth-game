@@ -57,7 +57,7 @@ passport.use('jwt', passportJWT.jwt)
 middleware.forEach((it) => server.use(it))
 
 const BASE_URL = 'https://sandbox-api.brewerydb.com/v2'
-const API_KEY = 'your api key'
+const API_KEY = '21553b7452d89999559dc51ef6b9815d'
 
 const getBeerUrl = () => `${BASE_URL}/beer/random?key=${API_KEY}`
 const getBreweryUrl = (id) => `${BASE_URL}/beer/${id}/breweries?key=${API_KEY}`
@@ -83,7 +83,6 @@ server.get('/api/v1/user-info', auth(['admin']), (req, res) => {
 })
 
 server.get('/api/v1/test/cookies', (req, res) => {
-  console.log(req.cookies)
   res.cookie('serverCookie', 'test', { maxAge: 90000, httpOnly: true })
   res.json({ status: res.cookies })
 })
